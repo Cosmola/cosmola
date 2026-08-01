@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cosmola Official Website</title>
-    
+    <meta name="description" content="鳥井奏志による音楽プロジェクト「Cosmola」のオフィシャルウェブサイト。">
+
     <style>
         /* --- 1. Design Tokens & Grid Background --- */
         :root {
@@ -68,6 +69,7 @@
             transform: translateY(40px);
             filter: blur(4px);
             transition: opacity 1.2s ease, transform 1.2s ease, filter 1.2s ease;
+            will-change: opacity, transform, filter;
         }
         .fade-in.active {
             opacity: 1;
@@ -93,6 +95,15 @@
             bottom: 4px;
             right: -20px;
             line-height: 0;
+        }
+
+        .sub-title {
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            text-transform: uppercase;
         }
 
         /* --- 4. Header & Navigation --- */
@@ -132,7 +143,7 @@
         nav ul {
             display: flex;
             list-style: none;
-            gap: 40px;
+            gap: 30px;
         }
 
         nav a {
@@ -252,11 +263,64 @@
             font-weight: 400;
         }
 
-        /* --- 7. ABOUT Section --- */
+        /* --- 7. LIVE Section --- */
+        .live-group {
+            margin-bottom: 60px;
+        }
+
+        .live-list {
+            list-style: none;
+            max-width: 850px;
+        }
+
+        .live-item {
+            padding: 24px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            display: grid;
+            grid-template-columns: 160px 1fr;
+            gap: 30px;
+            align-items: baseline;
+        }
+
+        .live-date {
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            color: var(--text-color);
+        }
+
+        .live-info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .live-detail-title {
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .live-detail-venue {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        .past-live-list .live-item {
+            padding: 16px 0;
+            opacity: 0.8;
+        }
+
+        .past-live-list .live-date {
+            color: var(--text-muted);
+        }
+
+        /* --- 8. ABOUT & BIOGRAPHY Section --- */
         .about-wrapper {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 100px;
+            margin-bottom: 80px;
         }
 
         .about-box {
@@ -279,7 +343,51 @@
             letter-spacing: 0.08em;
         }
 
-        /* --- 8. LINKS Section --- */
+        /* Biography 表示 */
+        .bio-container {
+            margin-top: 60px;
+            padding-top: 60px;
+            border-top: 1px solid rgba(0, 0, 0, 0.06);
+            max-width: 850px;
+        }
+
+        .bio-list {
+            list-style: none;
+        }
+
+        .bio-item {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 20px;
+            padding: 16px 0;
+            font-size: 0.85rem;
+            border-bottom: 1px dashed rgba(0, 0, 0, 0.05);
+        }
+
+        .bio-date {
+            color: var(--text-muted);
+            font-weight: 400;
+            letter-spacing: 0.05em;
+        }
+
+        .bio-text {
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        .bio-tag-release {
+            display: inline-block;
+            font-size: 0.65rem;
+            padding: 1px 6px;
+            margin-right: 8px;
+            border: 1px solid var(--text-muted);
+            color: var(--text-muted);
+            border-radius: 3px;
+            letter-spacing: 0.05em;
+            vertical-align: middle;
+        }
+
+        /* --- 9. LINKS Section --- */
         .links-list {
             list-style: none;
             max-width: 500px;
@@ -315,7 +423,7 @@
             font-weight: 400;
         }
 
-        /* --- 9. Footer --- */
+        /* --- 10. Footer --- */
         footer {
             padding: 120px 0 60px;
             text-align: center;
@@ -325,13 +433,16 @@
             font-weight: 400;
         }
 
-        /* --- 10. Responsive --- */
+        /* --- 11. Responsive --- */
         @media (max-width: 768px) {
             header {
                 padding: 20px 6vw;
             }
             nav ul {
-                gap: 20px;
+                gap: 15px;
+            }
+            nav a {
+                font-size: 0.7rem;
             }
             section {
                 padding: 100px 0;
@@ -350,6 +461,14 @@
                 grid-template-columns: 1fr;
                 gap: 60px;
             }
+            .live-item {
+                grid-template-columns: 1fr;
+                gap: 6px;
+            }
+            .bio-item {
+                grid-template-columns: 1fr;
+                gap: 4px;
+            }
         }
     </style>
 </head>
@@ -363,6 +482,7 @@
         <nav>
             <ul>
                 <li><a href="#movies">MOVIES</a></li>
+                <li><a href="#live">LIVE</a></li>
                 <li><a href="#about">ABOUT</a></li>
                 <li><a href="#links">LINKS</a></li>
             </ul>
@@ -379,195 +499,53 @@
 
         <section id="movies">
             <h2 class="section-title fade-in">Movies</h2>
-            <div class="movie-grid">
-                
-                <div class="movie-item fade-in">
-                    <a href="https://youtu.be/CoN44OQPSfA" target="_blank" class="movie-link">
-                        <div class="thumbnail-container">
-                            <img src="https://img.youtube.com/vi/CoN44OQPSfA/maxresdefault.jpg" alt="色と空">
-                        </div>
-                        <div class="movie-meta">
-                            <span class="movie-name">色と空</span>
-                            <span class="movie-date">2026</span>
-                        </div>
-                    </a>
-                </div>
+            <div class="movie-grid" id="movie-grid">
+                <!-- JSで自動挿入されます -->
+            </div>
+        </section>
 
-                <div class="movie-item fade-in">
-                    <a href="https://youtu.be/DnAiLao3xys" target="_blank" class="movie-link">
-                        <div class="thumbnail-container">
-                            <img src="https://img.youtube.com/vi/DnAiLao3xys/maxresdefault.jpg" alt="ユーモア">
-                        </div>
-                        <div class="movie-meta">
-                            <span class="movie-name">ユーモア</span>
-                            <span class="movie-date">2026</span>
-                        </div>
-                    </a>
-                </div>
+        <section id="live">
+            <h2 class="section-title fade-in">Live</h2>
+            
+            <div class="live-group fade-in">
+                <h3 class="sub-title">UPCOMING</h3>
+                <ul class="live-list" id="upcoming-live-list">
+                    <!-- JSで自動挿入されます -->
+                </ul>
+            </div>
 
-                <div class="movie-item fade-in">
-                    <a href="https://youtu.be/uI4FEgn-kqY" target="_blank" class="movie-link">
-                        <div class="thumbnail-container">
-                            <img src="https://img.youtube.com/vi/uI4FEgn-kqY/maxresdefault.jpg" alt="夢の街">
-                        </div>
-                        <div class="movie-meta">
-                            <span class="movie-name">夢の街</span>
-                            <span class="movie-date">2026</span>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="movie-item fade-in">
-                    <a href="https://youtu.be/zRv5Z22nWKY" target="_blank" class="movie-link">
-                        <div class="thumbnail-container">
-                            <img src="https://img.youtube.com/vi/zRv5Z22nWKY/maxresdefault.jpg" alt="さよならのこと（Live）">
-                        </div>
-                        <div class="movie-meta">
-                            <span class="movie-name">さよならのこと（Live）</span>
-                            <span class="movie-date">2026</span>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="movie-item fade-in">
-                    <a href="https://youtu.be/5XsAZQmzic8" target="_blank" class="movie-link">
-                        <div class="thumbnail-container">
-                            <img src="https://img.youtube.com/vi/5XsAZQmzic8/maxresdefault.jpg" alt="命脈のそばで">
-                        </div>
-                        <div class="movie-meta">
-                            <span class="movie-name">命脈のそばで</span>
-                            <span class="movie-date">2025</span>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="movie-item fade-in">
-                    <a href="https://youtu.be/m9yZburGZN4" target="_blank" class="movie-link">
-                        <div class="thumbnail-container">
-                            <img src="https://img.youtube.com/vi/m9yZburGZN4/maxresdefault.jpg" alt="光の束">
-                        </div>
-                        <div class="movie-meta">
-                            <span class="movie-name">光の束</span>
-                            <span class="movie-date">2025</span>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="movie-item fade-in">
-                    <a href="https://youtu.be/5MKTHnYW-5c" target="_blank" class="movie-link">
-                        <div class="thumbnail-container">
-                            <img src="https://img.youtube.com/vi/5MKTHnYW-5c/maxresdefault.jpg" alt="夏が泡になって">
-                        </div>
-                        <div class="movie-meta">
-                            <span class="movie-name">夏が泡になって</span>
-                            <span class="movie-date">2025</span>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="movie-item fade-in">
-                    <a href="https://youtu.be/P-oefu3LUBo" target="_blank" class="movie-link">
-                        <div class="thumbnail-container">
-                            <img src="https://img.youtube.com/vi/P-oefu3LUBo/maxresdefault.jpg" alt="時間旅行">
-                        </div>
-                        <div class="movie-meta">
-                            <span class="movie-name">時間旅行</span>
-                            <span class="movie-date">2025</span>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="movie-item fade-in">
-                    <a href="https://youtu.be/ov349mugmqA" target="_blank" class="movie-link">
-                        <div class="thumbnail-container">
-                            <img src="https://img.youtube.com/vi/ov349mugmqA/maxresdefault.jpg" alt="今日もまた">
-                        </div>
-                        <div class="movie-meta">
-                            <span class="movie-name">今日もまた</span>
-                            <span class="movie-date">2025</span>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="movie-item fade-in">
-                    <a href="https://youtu.be/IYKufzuH1U8" target="_blank" class="movie-link">
-                        <div class="thumbnail-container">
-                            <img src="https://img.youtube.com/vi/IYKufzuH1U8/maxresdefault.jpg" alt="雪が溶けても">
-                        </div>
-                        <div class="movie-meta">
-                            <span class="movie-name">雪が溶けても</span>
-                            <span class="movie-date">2024</span>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="movie-item fade-in">
-                    <a href="https://youtu.be/fopMJkR7His" target="_blank" class="movie-link">
-                        <div class="thumbnail-container">
-                            <img src="https://img.youtube.com/vi/fopMJkR7His/maxresdefault.jpg" alt="あの夏のせい">
-                        </div>
-                        <div class="movie-meta">
-                            <span class="movie-name">あの夏のせい</span>
-                            <span class="movie-date">2024</span>
-                        </div>
-                    </a>
-                </div>
-
+            <div class="live-group fade-in">
+                <h3 class="sub-title">PAST LIVES</h3>
+                <ul class="live-list past-live-list" id="past-live-list">
+                    <!-- JSで自動挿入されます -->
+                </ul>
             </div>
         </section>
 
         <section id="about">
             <h2 class="section-title fade-in">About</h2>
             <div class="about-wrapper fade-in">
-                <div class="about-box jp">
-                    <p>2024年より始動した、鳥井奏志による音楽プロジェクト「Cosmola」。</p>
-                    <p>京都を拠点に活動。</p>
-                    <p>ポップスを基盤に、矛盾や拙さを抱えたままの感情を音楽へ落とし込む。</p>
-                    <p>キャッチーなメロディと、繊細さと衝動が交差するサウンドを軸に、映像・アートワーク・イラストなども自身で制作。音とビジュアルの両面から作品を発表している。</p>
+                <div class="about-box jp" id="about-jp">
+                    <!-- JSで自動挿入されます -->
                 </div>
-                
-                <div class="about-box en">
-                    <p>Cosmola is a music project by Soushi Torii, launched in 2024 and based in Kyoto, Japan.</p>
-                    <p>Rooted in pop music, the project captures raw emotions, contradictions, and imperfections.</p>
-                    <p>Defined by catchy melodies mixed with delicate yet impulsive sounds.</p>
-                    <p>Torii writes the music and creates all visual elements, including video, artwork, and illustration, connecting sound and imagery as a single piece.</p>
+                <div class="about-box en" id="about-en">
+                    <!-- JSで自動挿入されます -->
                 </div>
+            </div>
+
+            <!-- Biography（経歴・リリース履歴） -->
+            <div class="bio-container fade-in">
+                <h3 class="sub-title">BIOGRAPHY</h3>
+                <ul class="bio-list" id="bio-list">
+                    <!-- JSで自動挿入されます -->
+                </ul>
             </div>
         </section>
 
         <section id="links">
             <h2 class="section-title fade-in">Links</h2>
-            <ul class="links-list fade-in">
-                <li>
-                    <a href="https://youtube.com/@cosmola_official" target="_blank" class="menu-link">
-                        <span class="link-label">YouTube</span>
-                        <span class="link-url">@cosmola_official</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.instagram.com/cosmola__official" target="_blank" class="menu-link">
-                        <span class="link-label">Instagram</span>
-                        <span class="link-url">@cosmola__official</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://x.com/cosmola_43" target="_blank" class="menu-link">
-                        <span class="link-label">X</span>
-                        <span class="link-url">@cosmola_43</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.tiktok.com/@cosmola4" target="_blank" class="menu-link">
-                        <span class="link-label">TikTok</span>
-                        <span class="link-url">@cosmola4</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="mailto:cosmola43@gmail.com" class="menu-link">
-                        <span class="link-label">Mail</span>
-                        <span class="link-url">cosmola43@gmail.com</span>
-                    </a>
-                </li>
+            <ul class="links-list fade-in" id="links-list">
+                <!-- JSで自動挿入されます -->
             </ul>
         </section>
     </main>
@@ -577,15 +555,187 @@
     </footer>
 
     <script>
-        const fadeElements = document.querySelectorAll('.fade-in');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
+        /* ========================================================
+           ★ 内容の変更・追加はここを編集するだけで完了します ★
+           ======================================================== */
+        const SITE_DATA = {
+            // 動画リスト（新しい順）
+            movies: [
+                { id: "zziAfqSmduA", title: "浮かんでいく", year: "2026" },
+                { id: "CoN44OQPSfA", title: "色と空", year: "2026" },
+                { id: "DnAiLao3xys", title: "ユーモア", year: "2026" },
+                { id: "uI4FEgn-kqY", title: "夢の街", year: "2026" },
+                { id: "zRv5Z22nWKY", title: "さよならのこと（Live）", year: "2026" },
+                { id: "5XsAZQmzic8", title: "命脈のそばで", year: "2025" },
+                { id: "m9yZburGZN4", title: "光の束", year: "2025" },
+                { id: "5MKTHnYW-5c", title: "夏が泡になって", year: "2025" },
+                { id: "P-oefu3LUBo", title: "時間旅行", year: "2025" },
+                { id: "ov349mugmqA", title: "今日もまた", year: "2025" },
+                { id: "IYKufzuH1U8", title: "雪が溶けても", year: "2024" },
+                { id: "fopMJkR7His", title: "あの夏のせい", year: "2024" }
+            ],
+
+            // ライブスケジュール（UPCOMING）
+            upcomingLives: [
+                {
+                    date: "2026.08.27 [Thu]",
+                    title: "夏まつりライブ",
+                    venue: "神戸VARIT.",
+                    time: "18:30〜"
+                },
+                {
+                    date: "2026.09.19 [Sat]",
+                    title: "KSMA予選ライブ",
+                    venue: "京都駅ビル内 大階段ステージ",
+                    time: "12:00～17:00"
                 }
-            });
-        }, { threshold: 0.1 });
-        fadeElements.forEach(el => observer.observe(el));
+            ],
+
+            // 過去のライブ（PAST LIVES）
+            pastLives: [
+                { date: "2026.07.25", venue: "アジアンカフェXanh（大阪府寝屋川市）" },
+                { date: "2026.07.16", venue: "京都精華大学 SUMMER LIVE 2026" },
+                { date: "2026.06.13", venue: "箕面キューズモール 努フェスタ第13回" },
+                { date: "2026.06.06", venue: "寝屋川VINTAGE（ネヤドラ×バンコミ&ユニコミライブ2026）" },
+                { date: "2026.05.24", venue: "長岡京 青春ツナグフェス2026" }
+            ],
+
+            // プロフィールテキスト
+            about: {
+                jp: [
+                    "2024年より始動した、鳥井奏志による音楽プロジェクト「Cosmola」。",
+                    "京都を拠点に活動。",
+                    "ポップスを基盤に、矛盾や拙さを抱えたままの感情を音楽へ落とし込む。",
+                    "キャッチーなメロディと、繊細さと衝動が交差するサウンドを軸に、映像・アートワーク・イラストなども自身で制作。音とビジュアルの両面から作品を発表している。"
+                ],
+                en: [
+                    "Cosmola is a music project by Soushi Torii, launched in 2024 and based in Kyoto, Japan.",
+                    "Rooted in pop music, the project captures raw emotions, contradictions, and imperfections.",
+                    "Defined by catchy melodies mixed with delicate yet impulsive sounds.",
+                    "Torii writes the music and creates all visual elements, including video, artwork, and illustration, connecting sound and imagery as a single piece."
+                ]
+            },
+
+            // 経歴・楽曲リリース履歴（BIOGRAPHY）
+            biography: [
+                { date: "2005.05.18", text: "鳥井 奏志 誕生" },
+                { date: "2023.06", text: "TEENS ROCK IN HIGASHIOSAKA 第2回近畿地区大会 優勝" },
+                { date: "2023.08", text: "第20回 TEENS ROCK 2023 GP FINAL IN HITACHINAKA ファイナル出場" },
+                { date: "2023.09", text: "U20 全国オンライン音楽コンテスト2023 DTM部門 金賞" },
+                { date: "2023.09", text: "第3回 全国高校 軽音楽部大会 we are SNEAKER AGES オリジナルソングコンテスト 1次選考通過" },
+                { date: "2023.09", text: "高校生ライブ MUSIC DAYS 2023 ワイルドカード バンド部 最優秀賞（FINAL出場）" },
+                { date: "2024.07.27", text: "Project \"Cosmola\" 始動" },
+                { date: "2024.08.24", text: "DTM甲子園2024 金賞" },
+                { date: "2024.09.03", text: "1st Single 『あの夏のせい』 リリース", isRelease: true },
+                { date: "2024.12.26", text: "Single 『雪が溶けても』 リリース", isRelease: true },
+                { date: "2025.03.21", text: "Single 『今日もまた』 リリース", isRelease: true },
+                { date: "2025.07.28", text: "Single 『時間旅行』 リリース", isRelease: true },
+                { date: "2025.09.14", text: "Single 『夏が泡になって』 リリース", isRelease: true },
+                { date: "2025.11.03", text: "Single 『光の束』 リリース", isRelease: true },
+                { date: "2025.11.25", text: "Single 『命脈のそばで』 リリース", isRelease: true },
+                { date: "2026.03.26", text: "Single 『夢の街』 リリース", isRelease: true },
+                { date: "2026.03.29", text: "Single 『ユーモア』 リリース", isRelease: true },
+                { date: "2026.04.29", text: "Single 『色と空』 リリース", isRelease: true },
+                { date: "2026.05.27", text: "「Cosmola BAND」 始動" },
+                { date: "2026.05.29", text: "Single 『浮かんでいく』 リリース", isRelease: true },
+                { date: "2026.06.19", text: "RO JACK for ROCK IN JAPAN FESTIVAL 2026 音源審査通過" }
+            ],
+
+            // 外部リンク・SNS
+            links: [
+                { label: "YouTube", url: "https://youtube.com/@cosmola_official", displayUrl: "@cosmola_official" },
+                { label: "Instagram", url: "https://www.instagram.com/cosmola__official", displayUrl: "@cosmola__official" },
+                { label: "X", url: "https://x.com/cosmola_43", displayUrl: "@cosmola_43" },
+                { label: "TikTok", url: "https://www.tiktok.com/@cosmola4", displayUrl: "@cosmola4" },
+                { label: "Mail", url: "mailto:cosmola43@gmail.com", displayUrl: "cosmola43@gmail.com" }
+            ]
+        };
+
+        /* ========================================================
+           画面自動生成ロジック（編集不要）
+           ======================================================== */
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Movies生成
+            const movieGrid = document.getElementById('movie-grid');
+            movieGrid.innerHTML = SITE_DATA.movies.map(movie => `
+                <div class="movie-item fade-in">
+                    <a href="https://youtu.be/${movie.id}" target="_blank" rel="noopener noreferrer" class="movie-link">
+                        <div class="thumbnail-container">
+                            <img src="https://img.youtube.com/vi/${movie.id}/maxresdefault.jpg" alt="${movie.title}">
+                        </div>
+                        <div class="movie-meta">
+                            <span class="movie-name">${movie.title}</span>
+                            <span class="movie-date">${movie.year}</span>
+                        </div>
+                    </a>
+                </div>
+            `).join('');
+
+            // 2. Live (Upcoming) 生成
+            const upcomingList = document.getElementById('upcoming-live-list');
+            if (SITE_DATA.upcomingLives.length === 0) {
+                upcomingList.innerHTML = '<li style="color:var(--text-muted); font-size:0.85rem;">現在予定されているライブはありません。</li>';
+            } else {
+                upcomingList.innerHTML = SITE_DATA.upcomingLives.map(live => `
+                    <li class="live-item">
+                        <div class="live-date">${live.date}</div>
+                        <div class="live-info">
+                            <div class="live-detail-title">${live.title}</div>
+                            <div class="live-detail-venue">${live.venue} ${live.time ? ' / ' + live.time : ''}</div>
+                        </div>
+                    </li>
+                `).join('');
+            }
+
+            // 3. Live (Past) 生成
+            const pastList = document.getElementById('past-live-list');
+            pastList.innerHTML = SITE_DATA.pastLives.map(live => `
+                <li class="live-item">
+                    <div class="live-date">${live.date}</div>
+                    <div class="live-info">
+                        <div class="live-detail-venue">${live.venue}</div>
+                    </div>
+                </li>
+            `).join('');
+
+            // 4. About本文生成
+            document.getElementById('about-jp').innerHTML = SITE_DATA.about.jp.map(p => `<p>${p}</p>`).join('');
+            document.getElementById('about-en').innerHTML = SITE_DATA.about.en.map(p => `<p>${p}</p>`).join('');
+
+            // 5. Biography生成
+            const bioList = document.getElementById('bio-list');
+            bioList.innerHTML = SITE_DATA.biography.map(item => `
+                <li class="bio-item">
+                    <span class="bio-date">${item.date}</span>
+                    <span class="bio-text">
+                        ${item.isRelease ? '<span class="bio-tag-release">RELEASE</span>' : ''}${item.text}
+                    </span>
+                </li>
+            `).join('');
+
+            // 6. Links生成
+            document.getElementById('links-list').innerHTML = SITE_DATA.links.map(link => `
+                <li>
+                    <a href="${link.url}" ${link.url.startsWith('mailto:') ? '' : 'target="_blank" rel="noopener noreferrer"'} class="menu-link">
+                        <span class="link-label">${link.label}</span>
+                        <span class="link-url">${link.displayUrl}</span>
+                    </a>
+                </li>
+            `).join('');
+
+            // スクロールフェードインのアニメーション
+            const fadeElements = document.querySelectorAll('.fade-in');
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            fadeElements.forEach(el => observer.observe(el));
+        });
     </script>
 </body>
 </html>
