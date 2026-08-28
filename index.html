@@ -559,8 +559,24 @@
            ★ 内容の変更・追加はここを編集するだけで完了します ★
            ======================================================== */
         const SITE_DATA = {
+            // お知らせ（NEWS）
+            news: [
+                { date: "2026.08.17", title: "New Single 『透明』 Music Video公開＆配信リリース", url: "https://youtu.be/S-Glr7eLOVE" },
+                { date: "2026.06.19", title: "RO JACK for ROCK IN JAPAN FESTIVAL 2026 音源審査通過", url: "#" },
+                { date: "2026.05.27", title: "「Cosmola BAND」始動のお知らせ", url: "#" }
+            ],
+
+            // ディスクグラフィー（DISCOGRAPHY）
+            discography: [
+                { title: "透明", type: "Single", releaseDate: "2026.08.17", cover: "https://img.youtube.com/vi/S-Glr7eLOVE/maxresdefault.jpg", url: "https://youtu.be/S-Glr7eLOVE" },
+                { title: "浮かんでいく", type: "Single", releaseDate: "2026.05.29", cover: "https://img.youtube.com/vi/zziAfqSmduA/maxresdefault.jpg", url: "#" },
+                { title: "色と空", type: "Single", releaseDate: "2026.04.29", cover: "https://img.youtube.com/vi/CoN44OQPSfA/maxresdefault.jpg", url: "#" },
+                { title: "ユーモア", type: "Single", releaseDate: "2026.03.29", cover: "https://img.youtube.com/vi/DnAiLao3xys/maxresdefault.jpg", url: "#" }
+            ],
+
             // 動画リスト（新しい順）
             movies: [
+                { id: "S-Glr7eLOVE", title: "透明", year: "2026" },
                 { id: "zziAfqSmduA", title: "浮かんでいく", year: "2026" },
                 { id: "CoN44OQPSfA", title: "色と空", year: "2026" },
                 { id: "DnAiLao3xys", title: "ユーモア", year: "2026" },
@@ -578,21 +594,22 @@
             // ライブスケジュール（UPCOMING）
             upcomingLives: [
                 {
-                    date: "2026.08.27 [Thu]",
-                    title: "夏まつりライブ",
-                    venue: "神戸VARIT.",
-                    time: "18:30〜"
-                },
-                {
                     date: "2026.09.19 [Sat]",
                     title: "KSMA予選ライブ",
                     venue: "京都駅ビル内 大階段ステージ",
                     time: "12:00～17:00"
+                },
+                {
+                    date: "2026.10.10 [Sat]",
+                    title: "Maxell presents FM802 MINAMI WHEEL 2026",
+                    venue: "会場は後日発表",
+                    time: "出演時間は後日発表"
                 }
             ],
 
             // 過去のライブ（PAST LIVES）
             pastLives: [
+                { date: "2026.08.27", venue: "神戸VARIT.夏まつりライブ" },
                 { date: "2026.07.25", venue: "アジアンカフェXanh（大阪府寝屋川市）" },
                 { date: "2026.07.16", venue: "京都精華大学 SUMMER LIVE 2026" },
                 { date: "2026.06.13", venue: "箕面キューズモール 努フェスタ第13回" },
@@ -609,7 +626,7 @@
                     "キャッチーなメロディと、繊細さと衝動が交差するサウンドを軸に、映像・アートワーク・イラストなども自身で制作。音とビジュアルの両面から作品を発表している。"
                 ],
                 en: [
-                    "Cosmola is a music project by Soushi Torii, launched in 2024 and based in Kyoto, Japan.",
+                    "Cosmola is a music project by Soshi Torii, launched in 2024 and based in Kyoto, Japan.",
                     "Rooted in pop music, the project captures raw emotions, contradictions, and imperfections.",
                     "Defined by catchy melodies mixed with delicate yet impulsive sounds.",
                     "Torii writes the music and creates all visual elements, including video, artwork, and illustration, connecting sound and imagery as a single piece."
@@ -622,7 +639,7 @@
                 { date: "2023.06", text: "TEENS ROCK IN HIGASHIOSAKA 第2回近畿地区大会 優勝" },
                 { date: "2023.08", text: "第20回 TEENS ROCK 2023 GP FINAL IN HITACHINAKA ファイナル出場" },
                 { date: "2023.09", text: "U20 全国オンライン音楽コンテスト2023 DTM部門 金賞" },
-                { date: "2023.09", text: "第3回 全国高校 軽音楽部大会 we are SNEAKER AGES オリジナルソングコンテスト 1次選考通過" },
+                { date: "2023.09", text: "第3回 全国高校 軽音楽部大会 we are SNEAKER AGES オリジナルソングコンテスト 優秀賞" },
                 { date: "2023.09", text: "高校生ライブ MUSIC DAYS 2023 ワイルドカード バンド部 最優秀賞（FINAL出場）" },
                 { date: "2024.07.27", text: "Project \"Cosmola\" 始動" },
                 { date: "2024.08.24", text: "DTM甲子園2024 金賞" },
@@ -638,7 +655,9 @@
                 { date: "2026.04.29", text: "Single 『色と空』 リリース", isRelease: true },
                 { date: "2026.05.27", text: "「Cosmola BAND」 始動" },
                 { date: "2026.05.29", text: "Single 『浮かんでいく』 リリース", isRelease: true },
-                { date: "2026.06.19", text: "RO JACK for ROCK IN JAPAN FESTIVAL 2026 音源審査通過" }
+                { date: "2026.06.19", text: "RO JACK for ROCK IN JAPAN FESTIVAL 2026 音源審査通過" },
+                { date: "2026.08.15", text: "DTM甲子園2026 金賞" },
+                { date: "2026.08.17", text: "Single 『透明』 リリース", isRelease: true }
             ],
 
             // 外部リンク・SNS
